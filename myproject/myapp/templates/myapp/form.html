@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Input Form</title>
+
+    <!-- Add any additional styles or include CSS files here -->
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+        form{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .form-box {
+            margin-top: 200px;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px; /* Adjust the width as needed */
+            margin-bottom: 20px; /* Adjust the spacing between boxes */
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            box-sizing: border-box;
+        }
+
+        input[type="submit"] {
+            background-color: #4caf50;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+
+        /* Add any additional styles based on your requirements */
+    </style>
+</head>
+<body>
+    <form method="post" action="{% url 'my_view' %}">
+    <div class="form-box">
+       
+            {% csrf_token %}
+
+            <!-- Fields for Box 1 -->
+            <label for="{{ form.duration.id_for_label }}">Duration:</label>
+            {{ form.duration }}
+
+            <label for="{{ form.protocol_type.id_for_label }}">Protocol Type:</label>
+            {{ form.protocol_type }}
+
+            <label for="{{ form.service.id_for_label }}">Service:</label>
+            {{ form.service }}
+
+            <label for="{{ form.flag.id_for_label }}">Flag:</label>
+            {{ form.flag }}
+
+            <label for="{{ form.src_bytes.id_for_label }}">Source Bytes:</label>
+            {{ form.src_bytes }}
+
+            <label for="{{ form.dst_bytes.id_for_label }}">Destination Bytes:</label>
+            {{ form.dst_bytes }}
+
+            <label for="{{ form.land.id_for_label }}">Land:</label>
+            {{ form.land }}
+
+            <label for="{{ form.wrong_fragment.id_for_label }}">Wrong Fragment:</label>
+            {{ form.wrong_fragment }}
+
+            <label for="{{ form.urgent.id_for_label }}">Urgent:</label>
+            {{ form.urgent }}
+            
+            <label for="{{ form.root_shell.id_for_label }}">Root Shell:</label>
+            {{ form.root_shell }}
+
+            <label for="{{ form.su_attempted.id_for_label }}">SU Attempted:</label>
+            {{ form.su_attempted }}
+    </div>
+
+    <div class="form-box">
+            {% csrf_token %}
+
+            <!-- Fields for Box 2 -->
+            <label for="{{ form.num_root.id_for_label }}">Number of Root:</label>
+            {{ form.num_root }}
+
+            <label for="{{ form.num_file_creations.id_for_label }}">Number of File Creations:</label>
+            {{ form.num_file_creations }}
+
+            <label for="{{ form.num_shells.id_for_label }}">Number of Shells:</label>
+            {{ form.num_shells }}
+
+            <label for="{{ form.num_access_files.id_for_label }}">Number of Access Files:</label>
+            {{ form.num_access_files }}
+
+            <label for="{{ form.num_outbound_cmds.id_for_label }}">Number of Outbound Commands:</label>
+            {{ form.num_outbound_cmds }}
+
+            <label for="{{ form.is_host_login.id_for_label }}">Is Host Login:</label>
+            {{ form.is_host_login }}
+
+            <label for="{{ form.is_guest_login.id_for_label }}">Is Guest Login:</label>
+            {{ form.is_guest_login }}
+
+            <label for="{{ form.count.id_for_label }}">Count:</label>
+            {{ form.count }}
+
+            <label for="{{ form.srv_count.id_for_label }}">Service Count:</label>
+            {{ form.srv_count }}
+            <label for="{{ form.hot.id_for_label }}">Hot:</label>
+            {{ form.hot }}
+            <label for="{{ form.diff_srv_rate.id_for_label }}">Different Service Rate:</label>
+            {{ form.diff_srv_rate }}
+
+    </div>
+
+    <div class="form-box">
+            {% csrf_token %}
+
+            <!-- Fields for Box 3 -->
+            <label for="{{ form.srv_diff_host_rate.id_for_label }}">Service Different Host Rate:</label>
+            {{ form.srv_diff_host_rate }}
+
+            <label for="{{ form.dst_host_count.id_for_label }}">Destination Host Count:</label>
+            {{ form.dst_host_count }}
+
+            <label for="{{ form.dst_host_srv_count.id_for_label }}">Destination Host Service Count:</label>
+            {{ form.dst_host_srv_count }}
+            
+            <label for="{{ form.serror_rate.id_for_label }}">Serror Rate:</label>
+            {{ form.serror_rate }}
+
+            <label for="{{ form.srv_serror_rate.id_for_label }}">Service Serror Rate:</label>
+            {{ form.srv_serror_rate }}
+
+            <label for="{{ form.rerror_rate.id_for_label }}">Rerror Rate:</label>
+            {{ form.rerror_rate }}
+
+            <label for="{{ form.srv_rerror_rate.id_for_label }}">Service Rerror Rate:</label>
+            {{ form.srv_rerror_rate }}
+
+            <label for="{{ form.same_srv_rate.id_for_label }}">Same Service Rate:</label>
+            {{ form.same_srv_rate }}
+            <label for="{{ form.num_failed_logins.id_for_label }}">Number of Failed Logins:</label>
+            {{ form.num_failed_logins }}
+            <label for="{{ form.logged_in.id_for_label }}">Logged In:</label>
+            {{ form.logged_in }}
+    </div>
+
+    <div class="form-box">
+            {% csrf_token %}
+
+            <!-- Fields for Box 4 -->
+            <label for="{{ form.dst_host_same_srv_rate.id_for_label }}">Destination Host Same Service Rate:</label>
+            {{ form.dst_host_same_srv_rate }}
+
+            <label for="{{ form.dst_host_diff_srv_rate.id_for_label }}">Destination Host Different Service Rate:</label>
+            {{ form.dst_host_diff_srv_rate }}
+
+            <label for="{{ form.dst_host_same_src_port_rate.id_for_label }}">Destination Host Same Source Port Rate:</label>
+            {{ form.dst_host_same_src_port_rate }}
+
+            <label for="{{ form.dst_host_srv_diff_host_rate.id_for_label }}">Destination Host Service Different Host Rate:</label>
+            {{ form.dst_host_srv_diff_host_rate }}
+
+            <label for="{{ form.dst_host_serror_rate.id_for_label }}">Destination Host Serror Rate:</label>
+            {{ form.dst_host_serror_rate }}
+
+            <label for="{{ form.dst_host_srv_serror_rate.id_for_label }}">Destination Host Service Serror Rate:</label>
+            {{ form.dst_host_srv_serror_rate }}
+
+            <label for="{{ form.dst_host_rerror_rate.id_for_label }}">Destination Host Rerror Rate:</label>
+            {{ form.dst_host_rerror_rate }}
+
+            <label for="{{ form.dst_host_srv_rerror_rate.id_for_label }}">Destination Host Service Rerror Rate:</label>
+            {{ form.dst_host_srv_rerror_rate }}
+
+            <label for="{{ form.last_flag.id_for_label }}">Last Flag:</label>
+            {{ form.last_flag }}
+
+            <label for="{{ form.num_compromised.id_for_label }}">Number of Compromised:</label>
+            {{ form.num_compromised }}
+
+            <!-- Submit button -->
+            <input type="submit" value="Submit">
+
+    </div>
+    </form>
+    <!-- Add more form-boxes as needed -->
+
+</body>
+</html>
